@@ -1,11 +1,20 @@
-<h1 style="text-align: center;"><strong><img src="https://html-online.com/editorfiles/tiny/plugins/emoticons/img/smiley-tongue-out.gif" alt="tongue-out" /> SFU C(UM) TEAM STATS <img src="https://html-online.com/editorfiles/tiny/plugins/emoticons/img/smiley-tongue-out.gif" alt="tongue-out" /></strong></h1>
+html_template = f"""
+<h1 style="text-align: center;">
+    <strong>
+        <img src="https://html-online.com/editorfiles/tiny/plugins/emoticons/img/smiley-tongue-out.gif" alt="tongue-out" /> 
+        SFU C(UM) TEAM STATS 
+        <img src="https://html-online.com/editorfiles/tiny/plugins/emoticons/img/smiley-tongue-out.gif" alt="tongue-out" />
+    </strong>
+</h1>
+
 <h3>WINRATES</h3>
-<p>SERIES W/R:<strong> ?%</strong></p>
-<p>MATCHES W/R:<strong> ?%</strong></p>
-<p>RED SIDE W/R: <strong>?%</strong></p>
-<p>BLUE SIDE W/R: <strong>?%</strong></p>
-<p>LAST PICK MID W/R: <strong>?%</strong></p>
-<p>LAST PICK ADC W/R: <strong>?%</strong></p>
-<p><strong>------------------------------------------------------------------------------------------------------------</strong></p>
+<p>SERIES W/R:<strong> {winrate(stats['series_wins'], stats['series_loses'])} ({stats['series_wins']}-{stats['series_loses']})</strong></p>
+<p>MATCHES W/R:<strong> {winrate(stats['match_wins'], stats['match_loses'])} ({stats['match_wins']}-{stats['match_loses']})</strong></p>
+<p>RED SIDE W/R: <strong>{winrate(stats['rSideW'], stats['rSideL'])} ({stats['rSideW']}-{stats['rSideL']})</strong></p>
+<p>BLUE SIDE W/R: <strong>{winrate(stats['bSideW'], stats['bSideL'])} ({stats['bSideW']}-{stats['bSideL']})</strong></p>
+<p>LAST PICK MID W/R: <strong>{winrate(stats['lp_mid_wins'], stats['lp_mid_loses'])} ({stats['lp_mid_wins']}-{stats['lp_mid_loses']})</strong></p>
+<p>LAST PICK ADC W/R: <strong>{winrate(stats['lp_adc_wins'], stats['lp_adc_loses'])} ({stats['lp_adc_wins']}-{stats['lp_adc_loses']})</strong></p>
+
 <h3><strong>CHAMPION STATS</strong></h3>
 <p>wip</p>
+"""

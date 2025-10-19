@@ -29,5 +29,37 @@ addSeries("w",2,0,1,0,1,0,0,0,0,0)#usc
 addSeries("l",0,4,0,2,0,0,0,0,0,0)#warmups
 addSeries("w",2,0,0,0,2,0,0,0,0,0)#warmups p2
 
-with open("data.json", "w") as f:
-    json.dump(stats, f)
+# 4️⃣ Build the HTML string
+html_template = f"""
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SFU C(UM) Team Stats</title>
+</head>
+<body>
+    <h1 style="text-align: center;">
+        <strong>
+            <img src="https://html-online.com/editorfiles/tiny/plugins/emoticons/img/smiley-tongue-out.gif" alt="tongue-out" />
+            SFU C(UM) TEAM STATS
+            <img src="https://html-online.com/editorfiles/tiny/plugins/emoticons/img/smiley-tongue-out.gif" alt="tongue-out" />
+        </strong>
+    </h1>
+
+    <h3>WINRATES</h3>
+    <p>SERIES W/R: <strong>{winrate(stats['series_wins'], stats['series_loses'])} ({stats['series_wins']}-{stats['series_loses']})</strong></p>
+    <p>MATCHES W/R: <strong>{winrate(stats['match_wins'], stats['match_loses'])} ({stats['match_wins']}-{stats['match_loses']})</strong></p>
+    <p>RED SIDE W/R: <strong>{winrate(stats['rSideW'], stats['rSideL'])} ({stats['rSideW']}-{stats['rSideL']})</strong></p>
+    <p>BLUE SIDE W/R: <strong>{winrate(stats['bSideW'], stats['bSideL'])} ({stats['bSideW']}-{stats['bSideL']})</strong></p>
+    <p>LAST PICK MID W/R: <strong>{winrate(stats['lp_mid_wins'], stats['lp_mid_loses'])} ({stats['lp_mid_wins']}-{stats['lp_mid_loses']})</strong></p>
+    <p>LAST PICK ADC W/R: <strong>{winrate(stats['lp_adc_wins'], stats['lp_adc_loses'])} ({stats['lp_adc_wins']}-{stats['lp_adc_loses']})</strong></p>
+
+    <h3><strong>CHAMPION STATS</strong></h3>
+    <p>wip</p>
+</body>
+</html>
+"""
+
+# 5️⃣ Save it to index.html
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(html_template)

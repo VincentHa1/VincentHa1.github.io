@@ -1,0 +1,9 @@
+
+
+<script>
+fetch('data.json')
+  .then(r => r.json())
+  .then(data => {
+    document.body.innerHTML += `<p>Number: ${data.number}</p>`;
+  });
+</script>
